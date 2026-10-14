@@ -994,5 +994,73 @@ html[dir="ltr"] .site-footer__tagline { text-transform: uppercase; }
     object-position: center;
   }
 }
+/* =========================
+   CAFE LOADING SCREEN
+========================= */
+
+.cafe-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(15, 15, 15, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+/* Centered Logo */
+
+.cafe-loader-logo {
+  display: block;
+  width: 140px;
+  max-width: 40vw;
+  height: auto;
+  object-fit: contain;
+
+  animation: logo-appear 0.4s ease both;
+}
+
+/* Hide Loader */
+
+.cafe-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Logo Animation */
+
+@keyframes logo-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .cafe-loader,
+  .cafe-loader-logo {
+    animation: none;
+    transition: none;
+  }
+}
 
 

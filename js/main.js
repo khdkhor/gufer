@@ -190,4 +190,30 @@
 
   initLanguageSwitcher();
   initMobileNavigation();
+
+  
+  /* ------------------------------------------------------------------ *
+   * Cafe Loading Screen
+   * ------------------------------------------------------------------ */
+
+  const initCafeLoader = () => {
+    const loader = document.getElementById('cafe-loader');
+
+    if (!loader) return;
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        loader.classList.add('is-hidden');
+
+        setTimeout(() => {
+          loader.remove();
+        }, 350);
+
+      }, 500);
+    }, { once: true });
+  };
+
+  initCafeLoader();
+
+
 })();
